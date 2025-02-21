@@ -26,7 +26,7 @@ export const nexusChain = defineChain({
 });
 
 export const config = getDefaultConfig({
-  appName: 'Voting dApp',
+  appName: 'Nexus Voting dApp',
   projectId: import.meta.env.VITE_WALLET_CONNECT_PROJECT_ID || 'YOUR_PROJECT_ID',
   chains: [nexusChain],
 }); 

@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background Circle -->
-  <circle cx="256" cy="256" r="248" fill="#4F46E5" fill-opacity="0.1" stroke="#4F46E5" stroke-width="16"/>
+  <!-- Background Circle with Gradient -->
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#4F46E5;stop-opacity:0.1" />
+    </linearGradient>
+  </defs>
+  <circle cx="256" cy="256" r="248" fill="url(#grad1)" stroke="#4F46E5" stroke-width="16"/>
   
-  <!-- Ballot Box -->
-  <path d="M160 196V356H352V196" stroke="#4F46E5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M136 196H376" stroke="#4F46E5" stroke-width="24" stroke-linecap="round"/>
+  <!-- Hexagon Network Pattern -->
+  <path d="M256 156L226 196L256 236L286 196L256 156Z" stroke="#4F46E5" stroke-width="8" fill="none"/>
+  <path d="M196 196L166 236L196 276L226 236L196 196Z" stroke="#4F46E5" stroke-width="8" fill="none"/>
+  <path d="M316 196L286 236L316 276L346 236L316 196Z" stroke="#4F46E5" stroke-width="8" fill="none"/>
+  <path d="M256 276L226 316L256 356L286 316L256 276Z" stroke="#4F46E5" stroke-width="8" fill="none"/>
   
-  <!-- Check Mark -->
-  <path d="M256 156L226 186L256 216" stroke="#4F46E5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M256 156L286 186L256 216" stroke="#4F46E5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Central Check Mark -->
+  <path d="M236 256L256 276L296 236" stroke="#4F46E5" stroke-width="16" stroke-linecap="round" stroke-linejoin="round"/>
   
-  <!-- Shield -->
-  <path d="M256 276C256 276 306 251 356 251V191C306 191 256 216 256 216C256 216 206 191 156 191V251C206 251 256 276 256 276Z" stroke="#4F46E5" stroke-width="24" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Connecting Lines -->
+  <path d="M256 156L256 236M196 196L256 236M316 196L256 236M256 276L256 356" 
+        stroke="#4F46E5" stroke-width="4" stroke-dasharray="4 4"/>
+  
+  <!-- Glowing Effect -->
+  <circle cx="256" cy="236" r="12" fill="#4F46E5" filter="url(#glow)"/>
+  <defs>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
 </svg> 

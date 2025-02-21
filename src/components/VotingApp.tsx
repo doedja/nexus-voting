@@ -191,9 +191,12 @@ export default function VotingApp() {
           <div className="w-full flex justify-between items-center mb-4">
             <div className="flex items-center gap-3">
               <img src="/nexus-vote.svg" alt="Nexus Vote" className="w-12 h-12" />
-              <h1 className="text-[32px] font-bold text-gray-900">
-                Nexus Vote
-              </h1>
+              <div>
+                <h1 className="text-[32px] font-bold text-gray-900">
+                  Nexus Voting
+                </h1>
+                <p className="text-sm text-gray-600">Decentralized Governance</p>
+              </div>
             </div>
             <div className="flex items-center gap-2">
               {isConnected && (
@@ -212,7 +215,7 @@ export default function VotingApp() {
             </div>
           </div>
           <p className="text-[18px] text-gray-600">
-            Participate in anonymous community governance with zero-knowledge proofs
+            Participate in anonymous community governance with zero-knowledge proofs on Nexus
           </p>
           {isConnected && (
             <div className="mt-4 flex items-center gap-2">
