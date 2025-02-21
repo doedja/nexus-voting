@@ -1,4 +1,4 @@
-import { type Address, type Hash, keccak256, stringToBytes } from 'viem';
+import { type Hash, stringToBytes } from 'viem';
 
 export interface VoteProof {
   zkProof: Uint8Array;
@@ -33,9 +33,19 @@ class MockZkVM {
 }
 
 // Initialize mock zkVM
-if (typeof window !== 'undefined' && !window.nexus) {
-  window.nexus = {
-    zkvm: new MockZkVM()
+declare global {
+  interface Window {
+    nexus?: {
+      zkvm: MockZkVM;
+    };
+  }
+}
+
+const mockZkVM = new MockZkVM();
+
+if (typeof window !== 'undefined') {
+  window.nexus = window.nexus || {
+    zkvm: mockZkVM
   };
 }
 
@@ -83,7 +93,7 @@ export async function generateVoteProof(
 
   try {
     // Call zkVM to generate proof
-    const zkProof = await window.nexus.zkvm.prove(
+    const zkProof = await mockZkVM.prove(
       '/zkvm/vote_verify.wasm',
       publicInputs,
       privateInputs
@@ -114,7 +124,7 @@ export async function verifyVoteProof(
     ];
 
     // Verify the proof using zkVM
-    return window.nexus.zkvm.verify(
+    return mockZkVM.verify(
       '/zkvm/vote_verify.wasm',
       proof.zkProof,
       publicInputs

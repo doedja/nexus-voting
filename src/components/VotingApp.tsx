@@ -7,13 +7,6 @@ import { TransactionModal } from './TransactionModal';
 import { publicClient } from '../utils/contract';
 import { formatEther } from 'viem';
 
-interface Choice {
-  id: number;
-  name: string;
-  description: string;
-  voteCount: number;
-}
-
 interface Proposal {
   id: number;
   title: string;

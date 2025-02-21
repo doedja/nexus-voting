@@ -253,12 +253,12 @@ export async function hasVoted(proposalId: number, address: Address): Promise<bo
   try {
     // For anonymous voting, we can only check if any vote was cast
     // We cannot know who cast it
-    const proposal = await publicClient.readContract({
+    await publicClient.readContract({
       address: contractAddress,
       abi: contractAbi,
       functionName: 'getProposal',
       args: [BigInt(proposalId)]
-    }) as [string, string, bigint, boolean];
+    });
     
     // For now, return false to allow testing
     // In production, we would track used nullifiers locally
