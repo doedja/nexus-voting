@@ -22,8 +22,6 @@ interface Proposal {
   reachedQuorum: boolean;
 }
 
-const ALLOW_MULTIPLE_VOTES = import.meta.env.VITE_ALLOW_MULTIPLE_VOTES === 'true';
-
 export default function VotingApp() {
   const { isConnected, address } = useAccount();
   const [proposals, setProposals] = useState<Proposal[]>([]);
